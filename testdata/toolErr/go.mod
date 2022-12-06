@@ -1,5 +1,3 @@
-package add
+module github.com/Nelwhix/goci/testdata/toolErr
 
-func add(a,b int) int {
-	return a + b
-}
+go 1.19

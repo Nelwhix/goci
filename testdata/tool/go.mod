@@ -1,5 +1,3 @@
-package add
+module github.com/Nelwhix/goci/testdata/tool
 
-func add(a,b int) int {
-	return a + b
-}
+go 1.19
