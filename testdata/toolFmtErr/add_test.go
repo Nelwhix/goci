@@ -7,7 +7,7 @@ func TestAdd(t *testing.T) {
 	b := 3
 
 	exp := 5
-	res := add(a, b)
+	res := add(a,b)
 
 	if exp != res {
 		t.Errorf("Expected %d, got %d.", exp, res)

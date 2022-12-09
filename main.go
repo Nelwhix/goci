@@ -7,8 +7,12 @@ import (
 	"os"
 )
 
+type executer interface {
+	execute() (string, error)
+}
+
 func run(project string, out io.Writer) error {
-	pipeline := make([]step, 2)
+	pipeline := make([]executer, 3)
 
 	pipeline[0] = newStep(
 		"go build",
@@ -24,6 +28,14 @@ func run(project string, out io.Writer) error {
 		"Go Test: SUCCESS",
 		project,
 		[]string{"test", "-v"},
+	)
+
+	pipeline[2] = newExceptionStep(
+		"go fmt",
+		"gofmt",
+        "Gofmt: SUCCESS",
+		project,
+		[]string{"-l", "."},
 	)
 
 	for _, s := range pipeline {

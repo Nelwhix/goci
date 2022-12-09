@@ -22,7 +22,7 @@ func newStep(name, exe, message, proj string, args []string) step {
 	}
 }
 
-func (s *step) execute() (string, error) {
+func (s step) execute() (string, error) {
 	cmd := exec.Command(s.exe, s.args...)
 	cmd.Dir = s.proj
 
